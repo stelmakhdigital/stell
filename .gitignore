@@ -1,0 +1,9 @@
+bin/
+*.exe
+.DS_Store
+agent-tui.log
+eval/results/*/
+eval/results/results.json
+!.gitkeep
+.cursor
+PLANS
