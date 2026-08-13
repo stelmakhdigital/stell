@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package agent.v1;
+
+option go_package = "github.com/budaev/agent/api/proto;agentv1";
+
+message Event {
+  string type = 1;
+  string session_id = 2;
+  string turn_id = 3;
+  string data_json = 4;
+  string at = 5;
+}
+
+message CreateSessionRequest {
+  string message = 1;
+  string workspace = 2;
+}
+
+message CreateSessionResponse {
+  string session_id = 1;
+}
+
+message SessionStatus {
+  string session_id = 1;
+  bool running = 2;
+  string final_text = 3;
+  string error = 4;
+}
+
+message HITLRequest {
+  string session_id = 1;
+  string decision = 2;
+}
+
+message CancelRequest {
+  string session_id = 1;
+}
+
+service AgentAPI {
+  rpc CreateSession(CreateSessionRequest) returns (CreateSessionResponse);
+  rpc GetSession(SessionStatus) returns (SessionStatus);
+  rpc StreamEvents(SessionStatus) returns (stream Event);
+  rpc Cancel(CancelRequest) returns (SessionStatus);
+  rpc HITL(HITLRequest) returns (SessionStatus);
+}

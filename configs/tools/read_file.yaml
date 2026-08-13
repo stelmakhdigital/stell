@@ -1,0 +1,7 @@
+name: read_file
+timeout: 10s
+max_output_bytes: 65536
+workspace_only: true
+requires_sandbox: false
+requires_hitl: false
+blocked_in_model_loop: false

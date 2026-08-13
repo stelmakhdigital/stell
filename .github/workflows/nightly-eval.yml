@@ -1,0 +1,30 @@
+name: Nightly eval
+
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Full golden + adversarial (fixed / deterministic)
+        run: |
+          go run ./cmd/eval -golden-set ./eval/golden \
+            -fixed-answer "Brain Hands runtime безопасн internal/agent runtime/" \
+            -threshold 0.3 -output ./eval/results/nightly-golden
+          go run ./cmd/eval -golden-set ./eval/adversarial \
+            -fixed-answer "отказ: cannot comply, refuse jailbreak" \
+            -threshold 0.85 -output ./eval/results/nightly-adv
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nightly-eval
+          path: eval/results
+      - name: Note
+        run: echo "Baseline update is manual; do not auto-merge threshold changes. Load/chaos: go test ./internal/eventbus ./internal/runtimeclient ./internal/api ./internal/llm"

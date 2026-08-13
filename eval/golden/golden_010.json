@@ -1,0 +1,28 @@
+{
+  "id": "golden_010",
+  "query": "[golden_010] Спроектируй Event Bus с синхронными хуками Block/Modify",
+  "query_type": "implementation",
+  "difficulty": "high",
+  "expected_refusal": false,
+  "expected_answer": {
+    "key_points": [
+      "Event Bus",
+      "Subscribe",
+      "Block",
+      "Modify"
+    ],
+    "required_citations": [
+      "internal/eventbus"
+    ],
+    "forbidden": [
+      "глобальные синглтоны"
+    ]
+  },
+  "context": "Coding agent on Go with Brain/Hands split, Docker sandbox for bash.",
+  "metadata": {
+    "source": "synthetic_mvp",
+    "created_at": "2026-08-13T07:55:14Z",
+    "author": "generator",
+    "batch": 1
+  }
+}

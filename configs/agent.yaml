@@ -1,0 +1,35 @@
+agent:
+  name: coding-agent
+  max_loop_depth: 50
+  temperature: 0.2
+  max_tokens: 4096
+  production: false
+  tool_allowlist: []
+  skills_dir: skills
+  manifests_dir: configs/tools
+  mcp_config: configs/mcp.yaml
+  audit_path: eval/results/audit.jsonl
+  hmac_key: ""
+  token_budget: 0
+  hitl_timeout: 30s
+  context_window: 32000
+  compact_ratio: 0.8
+  compress_tool_bytes: 8192
+  prompt_cache: true
+  session_store: ""
+  runtime_urls: []
+  runtime_sticky: false
+  api_addr: "127.0.0.1:8080"
+  api_token: ""
+
+llm:
+  provider: openai
+  base_url: "http://127.0.0.1:11434/v1"
+  api_key: ""
+  model: qwen3.6-27b
+
+logging:
+  level: info
+
+metrics:
+  addr: ":9090"

@@ -1,0 +1,14 @@
+addr: "127.0.0.1:8081"
+max_output_bytes: 65536
+production: false
+require_hmac: false
+hmac_key: ""
+
+sandbox:
+  image: alpine:3.20
+  network: none
+  memory: 256m
+  cpus: "1"
+  user: ""
+  read_only_root: false
+  pids_limit: "64"

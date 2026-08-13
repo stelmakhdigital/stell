@@ -1,0 +1,12 @@
+name: default
+tagline: Let's build something great again
+colors:
+  primary: "#89B4FA"
+  secondary: "#A6E3A1"
+  accent: "#F5C2E7"
+  background: "#1E1E2E"
+  foreground: "#CDD6F4"
+  muted: "#6C7086"
+  warning: "#F9E2AF"
+  error: "#F38BA8"
+  border: "#45475A"

@@ -1,0 +1,11 @@
+commands:
+  - name: plan
+    description: Plan the task before coding
+  - name: code
+    description: Implement the change
+  - name: help
+    description: Show available commands
+  - name: clear
+    description: Clear the chat viewport
+  - name: compact
+    description: Ask the agent to compact context

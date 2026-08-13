@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: runtime
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: runtime}
+  template:
+    metadata:
+      labels: {app: runtime}
+    spec:
+      containers:
+        - name: runtime
+          image: agent-runtime:dev
+          ports: [{containerPort: 8081}]
+          env:
+            - name: AGENT_HMAC_KEY
+              valueFrom: {secretKeyRef: {name: agent-secrets, key: hmac}}
+          readinessProbe:
+            httpGet: {path: /healthz, port: 8081}
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: {path: /healthz, port: 8081}
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: runtime
+spec:
+  selector: {app: runtime}
+  ports: [{port: 8081, targetPort: 8081}]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brain
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: brain}
+  template:
+    metadata:
+      labels: {app: brain}
+    spec:
+      containers:
+        - name: gateway
+          image: agent-gateway:dev
+          ports: [{containerPort: 8080}]
+          env:
+            - name: AGENT_API_TOKEN
+              valueFrom: {secretKeyRef: {name: agent-secrets, key: api}}
+            - name: AGENT_HMAC_KEY
+              valueFrom: {secretKeyRef: {name: agent-secrets, key: hmac}}
+          volumeMounts:
+            - {name: sessions, mountPath: /data/sessions}
+          readinessProbe:
+            httpGet: {path: /healthz, port: 8080}
+      volumes:
+        - name: sessions
+          persistentVolumeClaim: {claimName: sessions}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: brain
+spec:
+  selector: {app: brain}
+  ports: [{port: 8080, targetPort: 8080}]
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sessions
+spec:
+  accessModes: ["ReadWriteMany"]
+  resources:
+    requests:
+      storage: 1Gi

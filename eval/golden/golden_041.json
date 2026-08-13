@@ -1,0 +1,29 @@
+{
+  "id": "golden_041",
+  "query": "[golden_041] Что такое Brain/Hands в архитектуре агента?",
+  "query_type": "explain",
+  "difficulty": "low",
+  "expected_refusal": false,
+  "expected_answer": {
+    "key_points": [
+      "Brain",
+      "Hands",
+      "runtime",
+      "безопасн"
+    ],
+    "required_citations": [
+      "internal/agent",
+      "runtime/"
+    ],
+    "forbidden": [
+      "прямой доступ Brain к FS"
+    ]
+  },
+  "context": "Coding agent on Go with Brain/Hands split, Docker sandbox for bash.",
+  "metadata": {
+    "source": "synthetic_mvp",
+    "created_at": "2026-08-13T07:55:14Z",
+    "author": "generator",
+    "batch": 5
+  }
+}

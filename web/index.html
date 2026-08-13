@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Agent Web</title>
+  <style>
+    body { font-family: ui-sans-serif, system-ui; margin: 0; display: flex; flex-direction: column; height: 100vh; }
+    header { padding: 12px 16px; background: #111; color: #fff; display: flex; gap: 8px; align-items: center; }
+    header input { flex: 1; padding: 6px; }
+    #log { flex: 1; overflow: auto; padding: 12px; background: #0b0b0b; color: #ddd; font: 13px/1.4 ui-monospace, monospace; }
+    #hitl { display: none; padding: 8px 16px; background: #422; color: #fff; }
+    form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid #333; }
+    form textarea { flex: 1; min-height: 48px; }
+    .ev { margin: 4px 0; }
+    .tool { color: #8cf; }
+    .err { color: #f88; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Agent</strong>
+    <input id="base" placeholder="API base" value="http://127.0.0.1:8080" />
+    <input id="token" placeholder="API token" />
+    <span id="sid"></span>
+  </header>
+  <div id="hitl">HITL pending
+    <button type="button" id="approve">approve</button>
+    <button type="button" id="deny">deny</button>
+  </div>
+  <div id="log"></div>
+  <form id="f">
+    <textarea id="msg" placeholder="Message"></textarea>
+    <button type="submit">Send</button>
+    <button type="button" id="cancel">Cancel</button>
+  </form>
+  <script>
+    const log = document.getElementById('log');
+    const sidEl = document.getElementById('sid');
+    const hitl = document.getElementById('hitl');
+    let sessionId = '';
+    function headers() {
+      return { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + document.getElementById('token').value };
+    }
+    function line(cls, t) {
+      const d = document.createElement('div');
+      d.className = 'ev ' + cls;
+      d.textContent = t;
+      log.appendChild(d);
+      log.scrollTop = log.scrollHeight;
+    }
+    async function stream(id) {
+      const r = await fetch(document.getElementById('base').value + '/v1/sessions/' + id + '/events', { headers: headers() });
+      const reader = r.body.getReader();
+      const dec = new TextDecoder();
+      let buf = '';
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buf += dec.decode(value, { stream: true });
+        const parts = buf.split('\n\n');
+        buf = parts.pop();
+        for (const p of parts) {
+          const data = p.split('\n').filter(l => l.startsWith('data: ')).map(l => l.slice(6)).join('');
+          if (!data) continue;
+          try {
+            const ev = JSON.parse(data);
+            if (ev.type === 'hitl_request') hitl.style.display = 'block';
+            if (ev.type === 'hitl_decision') hitl.style.display = 'none';
+            line(ev.type === 'agent_error' ? 'err' : (ev.type === 'tool_call' ? 'tool' : ''), ev.type + ' ' + JSON.stringify(ev.data || {}));
+          } catch {}
+        }
+      }
+    }
+    document.getElementById('f').onsubmit = async (e) => {
+      e.preventDefault();
+      const body = JSON.stringify({ message: document.getElementById('msg').value });
+      const r = await fetch(document.getElementById('base').value + '/v1/sessions', { method: 'POST', headers: headers(), body });
+      const j = await r.json();
+      sessionId = j.session_id;
+      sidEl.textContent = sessionId;
+      stream(sessionId);
+    };
+    document.getElementById('cancel').onclick = () => {
+      if (!sessionId) return;
+      fetch(document.getElementById('base').value + '/v1/sessions/' + sessionId + '/cancel', { method: 'POST', headers: headers() });
+    };
+    async function hitlDec(d) {
+      await fetch(document.getElementById('base').value + '/v1/sessions/' + sessionId + '/hitl', {
+        method: 'POST', headers: headers(), body: JSON.stringify({ decision: d })
+      });
+    }
+    document.getElementById('approve').onclick = () => hitlDec('approve');
+    document.getElementById('deny').onclick = () => hitlDec('deny');
+  </script>
+</body>
+</html>

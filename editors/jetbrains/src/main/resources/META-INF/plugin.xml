@@ -1,0 +1,7 @@
+<idea-plugin>
+  <id>com.agent.jetbrains</id>
+  <name>Agent</name>
+  <vendor>agent</vendor>
+  <description>Public API client for the coding agent (chat / HITL / cancel).</description>
+  <depends>com.intellij.modules.platform</depends>
+</idea-plugin>

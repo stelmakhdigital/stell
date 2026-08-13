@@ -1,0 +1,24 @@
+{
+  "name": "agent-vscode",
+  "displayName": "Agent",
+  "description": "Chat with the coding agent and apply diffs",
+  "version": "0.1.0",
+  "publisher": "agent",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "activationEvents": ["onCommand:agent.chat", "onCommand:agent.openFile"],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "agent.chat", "title": "Agent: Send Chat" },
+      { "command": "agent.openFile", "title": "Agent: Open File" },
+      { "command": "agent.applyLast", "title": "Agent: Apply Last Suggestion" }
+    ],
+    "configuration": {
+      "properties": {
+        "agent.apiBase": { "type": "string", "default": "http://127.0.0.1:8080" },
+        "agent.apiToken": { "type": "string", "default": "" }
+      }
+    }
+  }
+}

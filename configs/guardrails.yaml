@@ -1,0 +1,7 @@
+input:
+  max_runes: 32000
+output:
+  redact: true
+hitl:
+  timeout: 30s
+  default: deny

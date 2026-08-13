@@ -1,0 +1,12 @@
+name: high-contrast
+tagline: Let's build something great
+colors:
+  primary: "#00d4ff"
+  secondary: "#7cff6b"
+  accent: "#ff66cc"
+  background: "#000000"
+  foreground: "#ffffff"
+  muted: "#a0a0a0"
+  warning: "#ffd000"
+  error: "#ff3355"
+  border: "#ffffff"

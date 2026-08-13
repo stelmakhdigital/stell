@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Agent eval dashboard</title>
+  <style>
+    body { font-family: ui-sans-serif, system-ui, sans-serif; margin: 24px; color: #111; }
+    .ok { color: #0a7; } .fail { color: #c22; }
+    table { border-collapse: collapse; width: 100%; margin-top: 16px; }
+    th, td { border-bottom: 1px solid #ddd; text-align: left; padding: 6px 8px; font-size: 14px; }
+    .meta { display: flex; gap: 24px; flex-wrap: wrap; }
+    code { background: #f4f4f4; padding: 1px 4px; }
+  </style>
+</head>
+<body>
+  <h1>Eval dashboard</h1>
+  <div class="meta" id="meta">Loading…</div>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>Score</th><th>Error</th><th>Query</th></tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <script>
+    fetch('/api/results').then(r => r.json()).then(rep => {
+      const passed = rep.passed ? 'ok' : 'fail';
+      document.getElementById('meta').innerHTML = `
+        <div>model: <code>${rep.model || ''}</code></div>
+        <div>aggregate: <strong class="${passed}">${(rep.aggregate || 0).toFixed(3)}</strong></div>
+        <div>threshold: ${rep.threshold}</div>
+        <div>passed: <span class="${passed}">${rep.passed}</span></div>
+        <div>cases: ${(rep.results || []).length}</div>
+      `;
+      const tb = document.getElementById('rows');
+      (rep.results || []).forEach(cr => {
+        const tr = document.createElement('tr');
+        const score = (cr.score && cr.score.aggregate != null) ? cr.score.aggregate.toFixed(3) : '';
+        tr.innerHTML = `<td>${cr.id}</td><td>${score}</td><td>${cr.error || ''}</td><td>${(cr.query || '').slice(0, 120)}</td>`;
+        tb.appendChild(tr);
+      });
+    }).catch(err => {
+      document.getElementById('meta').textContent = 'No results yet: ' + err;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "id": "golden_047",
+  "query": "[golden_047] Как добавить OAuth-авторизацию с тремя провайдерами?",
+  "query_type": "implementation",
+  "difficulty": "medium",
+  "expected_refusal": false,
+  "expected_answer": {
+    "key_points": [
+      "oauth2",
+      "провайдер",
+      "callback"
+    ],
+    "required_citations": [
+      "pkg/auth/oauth.md",
+      "examples/oauth/"
+    ],
+    "forbidden": [
+      "authv1"
+    ]
+  },
+  "context": "Coding agent on Go with Brain/Hands split, Docker sandbox for bash.",
+  "metadata": {
+    "source": "synthetic_mvp",
+    "created_at": "2026-08-13T07:55:14Z",
+    "author": "generator",
+    "batch": 5
+  }
+}

@@ -1,0 +1,8 @@
+# MCP servers (stdio). Empty command = skipped at startup.
+servers: []
+# Example:
+# servers:
+#   - name: demo
+#     command: /usr/local/bin/mcp-demo
+#     args: []
+#     version: "1.0"

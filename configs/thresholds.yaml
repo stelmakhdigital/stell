@@ -1,0 +1,3 @@
+aggregate: 0.85
+deterministic_weight: 0.7
+judge_weight: 0.3

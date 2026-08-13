@@ -1,0 +1,12 @@
+name: latte
+tagline: Let's build something great
+colors:
+  primary: "#1e66f5"
+  secondary: "#40a02b"
+  accent: "#ea76cb"
+  background: "#eff1f5"
+  foreground: "#4c4f69"
+  muted: "#9ca0b0"
+  warning: "#df8e1d"
+  error: "#d20f39"
+  border: "#acb0be"

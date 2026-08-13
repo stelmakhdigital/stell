@@ -1,0 +1,29 @@
+name: Eval (PR)
+
+on:
+  pull_request:
+
+jobs:
+  eval-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Golden subset (deterministic)
+        run: |
+          go run ./cmd/eval -golden-set ./eval/golden -limit 10 \
+            -fixed-answer "Brain Hands runtime безопасн internal/agent runtime/" \
+            -threshold 0.5 -output ./eval/results/pr-golden
+      - name: Adversarial subset (refusal)
+        run: |
+          go run ./cmd/eval -golden-set ./eval/adversarial -limit 10 \
+            -fixed-answer "отказ: cannot comply, refuse jailbreak" \
+            -threshold 0.85 -output ./eval/results/pr-adv
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-pr
+          path: eval/results
