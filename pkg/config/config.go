@@ -63,7 +63,7 @@ type MetricsConfig struct {
 func Default() Config {
 	return Config{
 		Agent: AgentConfig{
-			Name:              "coding-agent",
+			Name:              "stell",
 			MaxLoopDepth:      50,
 			Temperature:       0.2,
 			MaxTokens:         4096,

@@ -1,5 +1,5 @@
 agent:
-  name: coding-agent
+  name: stell
   max_loop_depth: 50
   temperature: 0.2
   max_tokens: 4096

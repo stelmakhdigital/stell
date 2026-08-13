@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/budaev/agent/pkg/hmacauth"
+	"github.com/budaev/stell/pkg/hmacauth"
 	"github.com/google/uuid"
 )
 

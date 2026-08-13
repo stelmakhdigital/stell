@@ -8,10 +8,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/budaev/agent/internal/agent"
-	"github.com/budaev/agent/internal/eventbus"
-	"github.com/budaev/agent/internal/hooks"
-	"github.com/budaev/agent/pkg/protocol"
+	"github.com/budaev/stell/internal/agent"
+	"github.com/budaev/stell/internal/eventbus"
+	"github.com/budaev/stell/internal/hooks"
+	"github.com/budaev/stell/pkg/protocol"
 	"github.com/google/uuid"
 )
 

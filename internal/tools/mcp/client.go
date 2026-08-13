@@ -7,7 +7,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/budaev/agent/internal/tools"
+	"github.com/budaev/stell/internal/tools"
 )
 
 // ServerConfig describes a stdio MCP server.

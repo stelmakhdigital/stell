@@ -5,12 +5,12 @@ import (
 	"testing"
 
 	tea "charm.land/bubbletea/v2"
-	"github.com/budaev/agent/internal/eventbus"
-	"github.com/budaev/agent/tui/app"
-	"github.com/budaev/agent/tui/components"
-	"github.com/budaev/agent/tui/components/chat"
-	"github.com/budaev/agent/tui/events"
-	"github.com/budaev/agent/tui/theme"
+	"github.com/budaev/stell/internal/eventbus"
+	"github.com/budaev/stell/tui/app"
+	"github.com/budaev/stell/tui/components"
+	"github.com/budaev/stell/tui/components/chat"
+	"github.com/budaev/stell/tui/events"
+	"github.com/budaev/stell/tui/theme"
 )
 
 func TestBusEventsAppearInChat(t *testing.T) {

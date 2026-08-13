@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/runtime/executor"
+	"github.com/budaev/stell/runtime/executor"
 )
 
 func TestBashWithoutSandboxRefused(t *testing.T) {

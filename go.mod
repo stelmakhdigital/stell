@@ -1,4 +1,4 @@
-module github.com/budaev/agent
+module github.com/budaev/stell
 
 go 1.26.1
 

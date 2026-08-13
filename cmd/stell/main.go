@@ -11,17 +11,17 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/budaev/agent/internal/agent"
-	"github.com/budaev/agent/internal/eventbus"
-	"github.com/budaev/agent/internal/hooks"
-	"github.com/budaev/agent/internal/llm"
-	"github.com/budaev/agent/internal/runtimeclient"
-	"github.com/budaev/agent/internal/tools"
-	"github.com/budaev/agent/internal/tools/builtin"
-	"github.com/budaev/agent/pkg/config"
-	"github.com/budaev/agent/pkg/observability"
-	"github.com/budaev/agent/runtime/executor"
-	"github.com/budaev/agent/runtime/sandbox"
+	"github.com/budaev/stell/internal/agent"
+	"github.com/budaev/stell/internal/eventbus"
+	"github.com/budaev/stell/internal/hooks"
+	"github.com/budaev/stell/internal/llm"
+	"github.com/budaev/stell/internal/runtimeclient"
+	"github.com/budaev/stell/internal/tools"
+	"github.com/budaev/stell/internal/tools/builtin"
+	"github.com/budaev/stell/pkg/config"
+	"github.com/budaev/stell/pkg/observability"
+	"github.com/budaev/stell/runtime/executor"
+	"github.com/budaev/stell/runtime/sandbox"
 	"go.uber.org/zap"
 )
 
@@ -48,10 +48,10 @@ func main() {
 
 func usage() {
 	fmt.Fprintf(os.Stderr, `Usage:
-  agent run [flags] "task"
+  stell run [flags] "task"
 
 Flags:
-  -config string     path to agent.yaml (default configs/agent.yaml)
+  -config string     path to stell.yaml (default configs/stell.yaml)
   -model string      override model name
   -provider string   override llm provider (ollama|vllm|openai)
   -runtime string    hands mode: local|http (default local)
@@ -63,7 +63,7 @@ Flags:
 
 func runCmd(args []string) error {
 	fs := flag.NewFlagSet("run", flag.ContinueOnError)
-	cfgPath := fs.String("config", "configs/agent.yaml", "path to config")
+	cfgPath := fs.String("config", "configs/stell.yaml", "path to config")
 	model := fs.String("model", "", "override model")
 	providerName := fs.String("provider", "", "override provider")
 	runtimeMode := fs.String("runtime", "local", "hands mode: local|http")
@@ -95,7 +95,7 @@ func runCmd(args []string) error {
 	}
 	defer func() { _ = log.Sync() }()
 
-	shutdownTrace, err := observability.InitTracing("agent")
+	shutdownTrace, err := observability.InitTracing("stell")
 	if err != nil {
 		return err
 	}
@@ -185,7 +185,7 @@ func newRuntimeClient(mode, url string) (runtimeclient.Client, error) {
 func newProvider(cfg config.Config) (llm.Provider, error) {
 	apiKey := cfg.LLM.APIKey
 	if apiKey == "" {
-		apiKey = os.Getenv("AGENT_LLM_API_KEY")
+		apiKey = os.Getenv("STELL_LLM_API_KEY")
 	}
 	switch strings.ToLower(cfg.LLM.Provider) {
 	case "ollama", "":

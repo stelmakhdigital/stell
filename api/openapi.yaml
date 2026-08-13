@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: Agent Public API
+  title: Stell Public API
   version: v1
   description: External gateway for sessions, SSE events, cancel, and HITL. Token auth (not Hands HMAC).
 servers:

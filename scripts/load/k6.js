@@ -10,8 +10,8 @@ export const options = {
   },
 };
 
-const BASE = __ENV.AGENT_API || "http://127.0.0.1:8080";
-const TOKEN = __ENV.AGENT_API_TOKEN || "dev-token";
+const BASE = __ENV.STELL_API || "http://127.0.0.1:8080";
+const TOKEN = __ENV.STELL_API_TOKEN || "dev-token";
 
 export default function () {
   const res = http.post(

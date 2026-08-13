@@ -6,12 +6,12 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/budaev/agent/internal/agent"
-	"github.com/budaev/agent/internal/domain"
-	"github.com/budaev/agent/internal/eventbus"
-	"github.com/budaev/agent/internal/llm"
-	"github.com/budaev/agent/internal/tools"
-	"github.com/budaev/agent/internal/tools/builtin"
+	"github.com/budaev/stell/internal/agent"
+	"github.com/budaev/stell/internal/domain"
+	"github.com/budaev/stell/internal/eventbus"
+	"github.com/budaev/stell/internal/llm"
+	"github.com/budaev/stell/internal/tools"
+	"github.com/budaev/stell/internal/tools/builtin"
 )
 
 func TestRunFinalAnswer(t *testing.T) {

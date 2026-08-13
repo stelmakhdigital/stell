@@ -9,7 +9,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/budaev/agent/internal/agent"
+	"github.com/budaev/stell/internal/agent"
 )
 
 // Runner produces an answer for a case.

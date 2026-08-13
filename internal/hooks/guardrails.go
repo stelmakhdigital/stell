@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/budaev/agent/internal/eventbus"
+	"github.com/budaev/stell/internal/eventbus"
 )
 
 var dangerousBash = []string{

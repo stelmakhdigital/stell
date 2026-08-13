@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/pkg/observability"
+	"github.com/budaev/stell/pkg/observability"
 	"github.com/prometheus/client_golang/prometheus/testutil"
 )
 

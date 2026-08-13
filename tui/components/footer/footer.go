@@ -9,8 +9,8 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 	"charm.land/lipgloss/v2"
-	"github.com/budaev/agent/tui/components"
-	"github.com/budaev/agent/tui/theme"
+	"github.com/budaev/stell/tui/components"
+	"github.com/budaev/stell/tui/theme"
 )
 
 // Model is a Starship-style status line.

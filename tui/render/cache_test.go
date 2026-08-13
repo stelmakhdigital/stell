@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/tui/render"
+	"github.com/budaev/stell/tui/render"
 )
 
 func TestCacheLRUAndByteBound(t *testing.T) {

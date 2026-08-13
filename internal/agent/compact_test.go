@@ -6,11 +6,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/internal/agent"
-	"github.com/budaev/agent/internal/eventbus"
-	"github.com/budaev/agent/internal/hooks"
-	"github.com/budaev/agent/internal/llm"
-	"github.com/budaev/agent/internal/tools"
+	"github.com/budaev/stell/internal/agent"
+	"github.com/budaev/stell/internal/eventbus"
+	"github.com/budaev/stell/internal/hooks"
+	"github.com/budaev/stell/internal/llm"
+	"github.com/budaev/stell/internal/tools"
 )
 
 func TestCompactPreservesDecisions(t *testing.T) {

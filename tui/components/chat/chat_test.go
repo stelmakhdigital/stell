@@ -4,9 +4,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/tui/components/chat"
-	"github.com/budaev/agent/tui/renderer"
-	"github.com/budaev/agent/tui/theme"
+	"github.com/budaev/stell/tui/components/chat"
+	"github.com/budaev/stell/tui/renderer"
+	"github.com/budaev/stell/tui/theme"
 )
 
 func TestAssistantRendersMarkdown(t *testing.T) {

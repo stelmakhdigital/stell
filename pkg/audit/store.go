@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/budaev/agent/pkg/observability"
+	"github.com/budaev/stell/pkg/observability"
 )
 
 const rotateBytes = 32 * 1024 * 1024

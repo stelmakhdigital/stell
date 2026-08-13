@@ -1,23 +1,23 @@
 {
-  "name": "agent-vscode",
-  "displayName": "Agent",
-  "description": "Chat with the coding agent and apply diffs",
+  "name": "stell-vscode",
+  "displayName": "Stell",
+  "description": "Chat with Stell and apply diffs",
   "version": "0.1.0",
-  "publisher": "agent",
+  "publisher": "stell",
   "engines": { "vscode": "^1.85.0" },
   "categories": ["Other"],
-  "activationEvents": ["onCommand:agent.chat", "onCommand:agent.openFile"],
+  "activationEvents": ["onCommand:stell.chat", "onCommand:stell.openFile"],
   "main": "./extension.js",
   "contributes": {
     "commands": [
-      { "command": "agent.chat", "title": "Agent: Send Chat" },
-      { "command": "agent.openFile", "title": "Agent: Open File" },
-      { "command": "agent.applyLast", "title": "Agent: Apply Last Suggestion" }
+      { "command": "stell.chat", "title": "Stell: Send Chat" },
+      { "command": "stell.openFile", "title": "Stell: Open File" },
+      { "command": "stell.applyLast", "title": "Stell: Apply Last Suggestion" }
     ],
     "configuration": {
       "properties": {
-        "agent.apiBase": { "type": "string", "default": "http://127.0.0.1:8080" },
-        "agent.apiToken": { "type": "string", "default": "" }
+        "stell.apiBase": { "type": "string", "default": "http://127.0.0.1:8080" },
+        "stell.apiToken": { "type": "string", "default": "" }
       }
     }
   }

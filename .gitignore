@@ -2,6 +2,7 @@ bin/
 *.exe
 .DS_Store
 agent-tui.log
+stell-tui.log
 eval/results/*/
 eval/results/results.json
 !.gitkeep

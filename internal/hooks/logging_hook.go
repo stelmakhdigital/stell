@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/budaev/agent/internal/eventbus"
-	"github.com/budaev/agent/pkg/observability"
+	"github.com/budaev/stell/internal/eventbus"
+	"github.com/budaev/stell/pkg/observability"
 	"go.uber.org/zap"
 )
 

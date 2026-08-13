@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/budaev/agent/internal/llm"
+	"github.com/budaev/stell/internal/llm"
 )
 
 const judgePrompt = `You are a strict evaluator of AI-agent answers.

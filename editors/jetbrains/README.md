@@ -5,7 +5,7 @@ Shared protocol: HTTP `api/openapi.yaml` / `pkg/protocol`. Same as VS Code and W
 Kotlin client (call from an action):
 
 ```kotlin
-// editors/jetbrains/src/main/kotlin/com/agent/Client.kt
+// editors/jetbrains/src/main/kotlin/com/stell/Client.kt
 ```
 
 Wire `CreateSession` + poll `GetSession` or SSE. Auth: `Authorization: Bearer <token>` — not HMAC.

@@ -5,9 +5,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/tui/render"
-	"github.com/budaev/agent/tui/renderer"
-	"github.com/budaev/agent/tui/theme"
+	"github.com/budaev/stell/tui/render"
+	"github.com/budaev/stell/tui/renderer"
+	"github.com/budaev/stell/tui/theme"
 )
 
 func TestMarkdownHeadingsListsFences(t *testing.T) {

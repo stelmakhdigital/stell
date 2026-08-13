@@ -19,9 +19,9 @@ const (
 	InputLatencyBudgetMS = 50
 )
 
-// AsyncOff disables background markdown (AGENT_TUI_ASYNC=0).
+// AsyncOff disables background markdown (STELL_TUI_ASYNC=0).
 func AsyncOff() bool {
-	v := os.Getenv("AGENT_TUI_ASYNC")
+	v := os.Getenv("STELL_TUI_ASYNC")
 	return v == "0" || v == "false"
 }
 

@@ -1,16 +1,16 @@
 package app
 
 import (
-	"github.com/budaev/agent/tui/commands"
-	"github.com/budaev/agent/tui/components"
-	"github.com/budaev/agent/tui/components/chat"
-	"github.com/budaev/agent/tui/components/editor"
-	"github.com/budaev/agent/tui/components/footer"
-	"github.com/budaev/agent/tui/components/header"
-	"github.com/budaev/agent/tui/components/spinner"
-	"github.com/budaev/agent/tui/events"
-	"github.com/budaev/agent/tui/renderer"
-	"github.com/budaev/agent/tui/theme"
+	"github.com/budaev/stell/tui/commands"
+	"github.com/budaev/stell/tui/components"
+	"github.com/budaev/stell/tui/components/chat"
+	"github.com/budaev/stell/tui/components/editor"
+	"github.com/budaev/stell/tui/components/footer"
+	"github.com/budaev/stell/tui/components/header"
+	"github.com/budaev/stell/tui/components/spinner"
+	"github.com/budaev/stell/tui/events"
+	"github.com/budaev/stell/tui/renderer"
+	"github.com/budaev/stell/tui/theme"
 )
 
 const (

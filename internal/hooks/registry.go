@@ -5,7 +5,7 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/budaev/agent/internal/eventbus"
+	"github.com/budaev/stell/internal/eventbus"
 )
 
 // Registry stores hooks and can attach them to an Event Bus.

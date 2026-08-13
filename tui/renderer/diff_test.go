@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/tui/renderer"
+	"github.com/budaev/stell/tui/renderer"
 )
 
 func TestDiffDirtyCellsOnly(t *testing.T) {
@@ -77,7 +77,7 @@ func TestFullRedrawFlag(t *testing.T) {
 	}
 	out, patch := r.Observe(20, 4, "aaab")
 	if patch {
-		t.Fatal("AGENT_TUI_FULL_REDRAW must skip patches")
+		t.Fatal("STELL_TUI_FULL_REDRAW must skip patches")
 	}
 	if !strings.Contains(out, "\x1b[2J") {
 		t.Fatalf("expected full clear, got %q", out[:min(24, len(out))])

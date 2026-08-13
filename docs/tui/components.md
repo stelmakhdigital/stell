@@ -25,9 +25,9 @@ Slots: `below-chat`, `above-footer`.
 package main
 
 import (
-    "github.com/budaev/agent/tui/app"
-    "github.com/budaev/agent/tui/components"
-    "github.com/budaev/agent/tui/theme"
+    "github.com/budaev/stell/tui/app"
+    "github.com/budaev/stell/tui/components"
+    "github.com/budaev/stell/tui/theme"
     tea "charm.land/bubbletea/v2"
 )
 

@@ -7,10 +7,10 @@ import (
 	tea "charm.land/bubbletea/v2"
 )
 
-const envKitty = "AGENT_TUI_KITTY"
+const envKitty = "STELL_TUI_KITTY"
 
 // Enabled reports whether Kitty keyboard enhancements may be requested.
-// AGENT_TUI_KITTY=0 disables; otherwise request and let the terminal degrade.
+// STELL_TUI_KITTY=0 disables; otherwise request and let the terminal degrade.
 func Enabled() bool {
 	v := os.Getenv(envKitty)
 	return v != "0" && v != "false"

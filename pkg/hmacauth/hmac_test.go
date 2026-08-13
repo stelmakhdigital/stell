@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/budaev/agent/pkg/hmacauth"
+	"github.com/budaev/stell/pkg/hmacauth"
 )
 
 func TestMiddlewareRejectsMissingAndReplay(t *testing.T) {

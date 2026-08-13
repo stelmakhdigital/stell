@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/pkg/audit"
+	"github.com/budaev/stell/pkg/audit"
 )
 
 func TestAppendRedactsSecret(t *testing.T) {

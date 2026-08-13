@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/tui/render"
+	"github.com/budaev/stell/tui/render"
 )
 
 func TestInlineImagesXtermPlaceholder(t *testing.T) {
@@ -48,7 +48,7 @@ func TestDetectImageProtocolKitty(t *testing.T) {
 
 func TestDetectImageProtocolDisabled(t *testing.T) {
 	getenv := func(k string) string {
-		if k == "AGENT_TUI_IMAGES" {
+		if k == "STELL_TUI_IMAGES" {
 			return "0"
 		}
 		if k == "KITTY_WINDOW_ID" {

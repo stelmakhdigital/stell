@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/internal/eventbus"
-	"github.com/budaev/agent/pkg/protocol"
+	"github.com/budaev/stell/internal/eventbus"
+	"github.com/budaev/stell/pkg/protocol"
 	"gopkg.in/yaml.v3"
 )
 

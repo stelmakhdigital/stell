@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/internal/eventbus"
+	"github.com/budaev/stell/internal/eventbus"
 )
 
 func TestHandlerPanicIsRecovered(t *testing.T) {

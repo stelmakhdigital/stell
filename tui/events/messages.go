@@ -2,7 +2,7 @@ package events
 
 import (
 	tea "charm.land/bubbletea/v2"
-	"github.com/budaev/agent/internal/eventbus"
+	"github.com/budaev/stell/internal/eventbus"
 )
 
 // BusMsg is a tea message wrapping an agent Event Bus event.

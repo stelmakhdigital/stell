@@ -5,19 +5,19 @@ test:
 
 build:
 	mkdir -p bin
-	go build -o bin/agent ./cmd/agent
+	go build -o bin/stell ./cmd/stell
 	go build -o bin/runtime ./cmd/runtime
 	go build -o bin/eval ./cmd/eval
 	go build -o bin/tui ./tui
 
 run:
-	go run ./cmd/agent run $(ARGS)
+	go run ./cmd/stell run $(ARGS)
 
 runtime:
 	go run ./cmd/runtime -config configs/runtime.yaml
 
 eval:
-	go run ./cmd/eval --golden-set ./eval/golden --output ./eval/results --config configs/agent.yaml
+	go run ./cmd/eval --golden-set ./eval/golden --output ./eval/results --config configs/stell.yaml
 
 eval-smoke:
 	go run ./cmd/eval --golden-set ./eval/golden --output ./eval/results --limit 5 --threshold 0.4 \

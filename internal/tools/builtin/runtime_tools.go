@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/budaev/agent/internal/runtimeclient"
-	"github.com/budaev/agent/internal/tools"
+	"github.com/budaev/stell/internal/runtimeclient"
+	"github.com/budaev/stell/internal/tools"
 )
 
 // RuntimeTool is a Brain-side tool that delegates to Hands.

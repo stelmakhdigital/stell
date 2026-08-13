@@ -3,7 +3,7 @@ package hooks
 import (
 	"context"
 
-	"github.com/budaev/agent/internal/eventbus"
+	"github.com/budaev/stell/internal/eventbus"
 )
 
 // Hook is a prioritized event middleware.

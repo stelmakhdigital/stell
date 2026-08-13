@@ -6,9 +6,9 @@ import (
 	"charm.land/bubbles/v2/textarea"
 	tea "charm.land/bubbletea/v2"
 	"charm.land/lipgloss/v2"
-	"github.com/budaev/agent/tui/complete"
-	"github.com/budaev/agent/tui/components"
-	"github.com/budaev/agent/tui/theme"
+	"github.com/budaev/stell/tui/complete"
+	"github.com/budaev/stell/tui/components"
+	"github.com/budaev/stell/tui/theme"
 )
 
 const defaultHeight = 4

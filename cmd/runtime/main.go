@@ -7,10 +7,10 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/budaev/agent/pkg/config"
-	"github.com/budaev/agent/runtime/api"
-	"github.com/budaev/agent/runtime/executor"
-	"github.com/budaev/agent/runtime/sandbox"
+	"github.com/budaev/stell/pkg/config"
+	"github.com/budaev/stell/runtime/api"
+	"github.com/budaev/stell/runtime/executor"
+	"github.com/budaev/stell/runtime/sandbox"
 )
 
 func main() {
@@ -29,14 +29,14 @@ func main() {
 
 	hmacKey := cfg.HMACKey
 	if hmacKey == "" {
-		hmacKey = os.Getenv("AGENT_HMAC_KEY")
+		hmacKey = os.Getenv("STELL_HMAC_KEY")
 	}
 
 	policy := sandbox.DefaultPolicy()
 	if cfg.Production {
 		policy = sandbox.ProductionPolicy()
 		if hmacKey == "" {
-			log.Fatal("production runtime requires hmac_key or AGENT_HMAC_KEY")
+			log.Fatal("production runtime requires hmac_key or STELL_HMAC_KEY")
 		}
 	}
 	if cfg.Sandbox.Image != "" {

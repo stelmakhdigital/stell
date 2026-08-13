@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/budaev/agent/runtime/executor"
-	"github.com/budaev/agent/runtime/sandbox"
+	"github.com/budaev/stell/runtime/executor"
+	"github.com/budaev/stell/runtime/sandbox"
 )
 
 func TestReadWriteRoundTrip(t *testing.T) {

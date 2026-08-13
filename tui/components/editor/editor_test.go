@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/tui/components/editor"
-	"github.com/budaev/agent/tui/theme"
+	"github.com/budaev/stell/tui/components/editor"
+	"github.com/budaev/stell/tui/theme"
 )
 
 func TestEditorValueSubmit(t *testing.T) {

@@ -17,7 +17,7 @@ import (
 )
 
 const (
-	envImages    = "AGENT_TUI_IMAGES"
+	envImages    = "STELL_TUI_IMAGES"
 	maxImageB    = 512 << 10
 	maxImagePx   = 2048 * 2048
 	maxImageSide = 4096

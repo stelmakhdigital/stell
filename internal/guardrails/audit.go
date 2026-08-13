@@ -1,8 +1,8 @@
 package guardrails
 
 import (
-	"github.com/budaev/agent/internal/eventbus"
-	"github.com/budaev/agent/pkg/audit"
+	"github.com/budaev/stell/internal/eventbus"
+	"github.com/budaev/stell/pkg/audit"
 )
 
 // AttachAudit writes redacted tool_call / tool_result lines to the DCL store.

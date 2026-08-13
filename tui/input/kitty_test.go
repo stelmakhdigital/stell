@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	tea "charm.land/bubbletea/v2"
-	"github.com/budaev/agent/tui/input"
+	"github.com/budaev/stell/tui/input"
 )
 
 func TestDetectXtermIsFalse(t *testing.T) {

@@ -3,7 +3,7 @@ package eventbus_test
 import (
 	"testing"
 
-	"github.com/budaev/agent/internal/eventbus"
+	"github.com/budaev/stell/internal/eventbus"
 )
 
 func TestPublishCallsHandlersAndBlock(t *testing.T) {

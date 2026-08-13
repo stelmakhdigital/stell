@@ -6,9 +6,9 @@ import (
 	"charm.land/bubbles/v2/viewport"
 	tea "charm.land/bubbletea/v2"
 	"charm.land/lipgloss/v2"
-	"github.com/budaev/agent/tui/components"
-	"github.com/budaev/agent/tui/render"
-	"github.com/budaev/agent/tui/theme"
+	"github.com/budaev/stell/tui/components"
+	"github.com/budaev/stell/tui/render"
+	"github.com/budaev/stell/tui/theme"
 )
 
 // Role is a chat line kind.

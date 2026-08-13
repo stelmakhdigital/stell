@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/budaev/agent/internal/domain"
-	"github.com/budaev/agent/internal/sessionstore"
+	"github.com/budaev/stell/internal/domain"
+	"github.com/budaev/stell/internal/sessionstore"
 )
 
 func TestTwoStoresShareDir(t *testing.T) {

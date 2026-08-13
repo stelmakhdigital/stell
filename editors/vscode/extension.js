@@ -1,7 +1,7 @@
 const vscode = require("vscode");
 
 async function api(path, method, body) {
-  const cfg = vscode.workspace.getConfiguration("agent");
+  const cfg = vscode.workspace.getConfiguration("stell");
   const base = cfg.get("apiBase");
   const token = cfg.get("apiToken");
   const res = await fetch(base + path, {
@@ -18,8 +18,8 @@ async function api(path, method, body) {
 function activate(context) {
   let lastText = "";
   context.subscriptions.push(
-    vscode.commands.registerCommand("agent.chat", async () => {
-      const msg = await vscode.window.showInputBox({ prompt: "Agent task" });
+    vscode.commands.registerCommand("stell.chat", async () => {
+      const msg = await vscode.window.showInputBox({ prompt: "Stell task" });
       if (!msg) return;
       const created = await api("/v1/sessions", "POST", { message: msg });
       vscode.window.showInformationMessage("session " + created.session_id);
@@ -28,16 +28,16 @@ function activate(context) {
       const doc = await vscode.workspace.openTextDocument({ content: lastText || "(running — reopen status)", language: "markdown" });
       await vscode.window.showTextDocument(doc);
     }),
-    vscode.commands.registerCommand("agent.openFile", async () => {
+    vscode.commands.registerCommand("stell.openFile", async () => {
       const rel = await vscode.window.showInputBox({ prompt: "Workspace-relative path" });
       if (!rel || !vscode.workspace.workspaceFolders) return;
       const uri = vscode.Uri.joinPath(vscode.workspace.workspaceFolders[0].uri, rel);
       await vscode.window.showTextDocument(uri);
     }),
-    vscode.commands.registerCommand("agent.applyLast", async () => {
+    vscode.commands.registerCommand("stell.applyLast", async () => {
       const editor = vscode.window.activeTextEditor;
       if (!editor || !lastText) {
-        vscode.window.showWarningMessage("No last agent text");
+        vscode.window.showWarningMessage("No last Stell text");
         return;
       }
       await editor.edit((b) => b.insert(editor.selection.active, lastText));

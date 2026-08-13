@@ -1,7 +1,7 @@
 <idea-plugin>
-  <id>com.agent.jetbrains</id>
-  <name>Agent</name>
-  <vendor>agent</vendor>
-  <description>Public API client for the coding agent (chat / HITL / cancel).</description>
+  <id>com.stell.jetbrains</id>
+  <name>Stell</name>
+  <vendor>stell</vendor>
+  <description>Public API client for Stell (chat / HITL / cancel).</description>
   <depends>com.intellij.modules.platform</depends>
 </idea-plugin>

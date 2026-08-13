@@ -8,23 +8,23 @@ import (
 	"strings"
 	"time"
 
-	"github.com/budaev/agent/internal/agent"
-	"github.com/budaev/agent/internal/domain"
-	"github.com/budaev/agent/internal/eventbus"
-	"github.com/budaev/agent/internal/guardrails"
-	"github.com/budaev/agent/internal/hooks"
-	"github.com/budaev/agent/internal/llm"
-	"github.com/budaev/agent/internal/runtimeclient"
-	"github.com/budaev/agent/internal/sessionstore"
-	"github.com/budaev/agent/internal/skills"
-	"github.com/budaev/agent/internal/subagents"
-	"github.com/budaev/agent/internal/tools"
-	"github.com/budaev/agent/internal/tools/builtin"
-	"github.com/budaev/agent/internal/tools/mcp"
-	"github.com/budaev/agent/pkg/audit"
-	"github.com/budaev/agent/pkg/config"
-	"github.com/budaev/agent/runtime/executor"
-	"github.com/budaev/agent/runtime/sandbox"
+	"github.com/budaev/stell/internal/agent"
+	"github.com/budaev/stell/internal/domain"
+	"github.com/budaev/stell/internal/eventbus"
+	"github.com/budaev/stell/internal/guardrails"
+	"github.com/budaev/stell/internal/hooks"
+	"github.com/budaev/stell/internal/llm"
+	"github.com/budaev/stell/internal/runtimeclient"
+	"github.com/budaev/stell/internal/sessionstore"
+	"github.com/budaev/stell/internal/skills"
+	"github.com/budaev/stell/internal/subagents"
+	"github.com/budaev/stell/internal/tools"
+	"github.com/budaev/stell/internal/tools/builtin"
+	"github.com/budaev/stell/internal/tools/mcp"
+	"github.com/budaev/stell/pkg/audit"
+	"github.com/budaev/stell/pkg/config"
+	"github.com/budaev/stell/runtime/executor"
+	"github.com/budaev/stell/runtime/sandbox"
 	"go.uber.org/zap"
 	"gopkg.in/yaml.v3"
 )
@@ -96,7 +96,7 @@ func New(opts Options) (*Runtime, error) {
 	}
 	hmacKey := cfg.Agent.HMACKey
 	if hmacKey == "" {
-		hmacKey = os.Getenv("AGENT_HMAC_KEY")
+		hmacKey = os.Getenv("STELL_HMAC_KEY")
 	}
 	client, err := newRuntimeClient(mode, opts.RuntimeURL, hmacKey, cfg.Agent.Production, cfg.Agent.RuntimeURLs, cfg.Agent.RuntimeSticky)
 	if err != nil {
@@ -257,7 +257,7 @@ func newRuntimeClient(mode, url, hmacKey string, production bool, urls []string,
 func newProvider(cfg config.Config) (llm.Provider, error) {
 	apiKey := cfg.LLM.APIKey
 	if apiKey == "" {
-		apiKey = os.Getenv("AGENT_LLM_API_KEY")
+		apiKey = os.Getenv("STELL_LLM_API_KEY")
 	}
 	switch strings.ToLower(cfg.LLM.Provider) {
 	case "ollama", "":

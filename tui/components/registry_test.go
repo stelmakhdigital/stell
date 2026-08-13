@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	tea "charm.land/bubbletea/v2"
-	"github.com/budaev/agent/tui/components"
+	"github.com/budaev/stell/tui/components"
 )
 
 type stub struct {

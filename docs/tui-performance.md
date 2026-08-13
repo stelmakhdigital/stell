@@ -11,17 +11,17 @@ Budgets (see `tui/render/cache.go`):
 
 ## What is off the input loop
 
-Assistant markdown larger than 4 KiB is queued (`tui/app/async.go`, max 2 inflight). The chat shows `rendering…` until `RenderDoneMsg`. Set `AGENT_TUI_ASYNC=0` to force sync (debug).
+Assistant markdown larger than 4 KiB is queued (`tui/app/async.go`, max 2 inflight). The chat shows `rendering…` until `RenderDoneMsg`. Set `STELL_TUI_ASYNC=0` to force sync (debug).
 
 ## Profiling
 
 ```bash
-AGENT_TUI_PPROF=1 go run ./tui -ui-only
+STELL_TUI_PPROF=1 go run ./tui -ui-only
 # other terminal
 ./scripts/tui_profile.sh /tmp/tui-cpu.pprof 10
 ```
 
-Optional: `AGENT_TUI_PPROF_ADDR=127.0.0.1:6060` (localhost only).
+Optional: `STELL_TUI_PPROF_ADDR=127.0.0.1:6060` (localhost only).
 
 Heap: `curl -s http://127.0.0.1:6060/debug/pprof/heap > /tmp/tui-heap.pprof`
 

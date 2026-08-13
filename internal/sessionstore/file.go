@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/budaev/agent/internal/domain"
+	"github.com/budaev/stell/internal/domain"
 )
 
 // FileStore persists sessions as JSON files (shared volume for Brain replicas).

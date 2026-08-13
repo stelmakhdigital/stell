@@ -12,12 +12,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/budaev/agent/internal/agent"
-	pubapi "github.com/budaev/agent/internal/api"
-	"github.com/budaev/agent/internal/eventbus"
-	"github.com/budaev/agent/internal/hooks"
-	"github.com/budaev/agent/internal/llm"
-	"github.com/budaev/agent/pkg/protocol"
+	"github.com/budaev/stell/internal/agent"
+	pubapi "github.com/budaev/stell/internal/api"
+	"github.com/budaev/stell/internal/eventbus"
+	"github.com/budaev/stell/internal/hooks"
+	"github.com/budaev/stell/internal/llm"
+	"github.com/budaev/stell/pkg/protocol"
 )
 
 func spawnFake(inner llm.Provider) pubapi.Spawner {

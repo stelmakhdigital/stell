@@ -4,8 +4,8 @@ import (
 	"context"
 	"sync"
 
-	"github.com/budaev/agent/internal/agent"
-	"github.com/budaev/agent/tui/events"
+	"github.com/budaev/stell/internal/agent"
+	"github.com/budaev/stell/tui/events"
 )
 
 // Controller starts/cancels agent sessions. TUI must not execute tools.

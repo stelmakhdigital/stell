@@ -2,7 +2,7 @@ package events
 
 import (
 	tea "charm.land/bubbletea/v2"
-	"github.com/budaev/agent/internal/eventbus"
+	"github.com/budaev/stell/internal/eventbus"
 )
 
 // Client bridges Event Bus → tea messages via a channel.

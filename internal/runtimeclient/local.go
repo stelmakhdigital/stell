@@ -3,7 +3,7 @@ package runtimeclient
 import (
 	"context"
 
-	"github.com/budaev/agent/runtime/executor"
+	"github.com/budaev/stell/runtime/executor"
 )
 
 // LocalClient executes tools in-process via Hands executor (MVP convenience).

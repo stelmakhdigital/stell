@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/budaev/agent/internal/eventbus"
-	"github.com/budaev/agent/internal/hooks"
+	"github.com/budaev/stell/internal/eventbus"
+	"github.com/budaev/stell/internal/hooks"
 )
 
 type stubHook struct {

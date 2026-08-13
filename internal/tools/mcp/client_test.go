@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/budaev/agent/internal/tools"
-	"github.com/budaev/agent/internal/tools/mcp"
+	"github.com/budaev/stell/internal/tools"
+	"github.com/budaev/stell/internal/tools/mcp"
 )
 
 func TestConnectRegisterAndDisconnect(t *testing.T) {

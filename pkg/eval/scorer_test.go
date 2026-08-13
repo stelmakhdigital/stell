@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/budaev/agent/pkg/eval"
+	"github.com/budaev/stell/pkg/eval"
 )
 
 func TestDeterministicScorer(t *testing.T) {

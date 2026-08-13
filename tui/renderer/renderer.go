@@ -7,7 +7,7 @@ import (
 	"sync"
 )
 
-const envFullRedraw = "AGENT_TUI_FULL_REDRAW"
+const envFullRedraw = "STELL_TUI_FULL_REDRAW"
 
 // Renderer keeps the previous frame and writes only dirty cells.
 type Renderer struct {
@@ -20,7 +20,7 @@ type Renderer struct {
 	BytesPatch int
 }
 
-// New creates a renderer. AGENT_TUI_FULL_REDRAW=1 forces full frames.
+// New creates a renderer. STELL_TUI_FULL_REDRAW=1 forces full frames.
 func New(width, height int) *Renderer {
 	r := &Renderer{width: width, height: height}
 	r.fullRedraw = os.Getenv(envFullRedraw) == "1" || os.Getenv(envFullRedraw) == "true"

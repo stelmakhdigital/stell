@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/budaev/agent/pkg/hmacauth"
-	"github.com/budaev/agent/runtime/executor"
+	"github.com/budaev/stell/pkg/hmacauth"
+	"github.com/budaev/stell/runtime/executor"
 )
 
 // Server exposes Hands over HTTP.

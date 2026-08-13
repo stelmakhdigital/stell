@@ -5,16 +5,16 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/budaev/agent/internal/bootstrap"
-	"github.com/budaev/agent/pkg/observability"
-	"github.com/budaev/agent/tui/app"
-	"github.com/budaev/agent/tui/commands"
-	"github.com/budaev/agent/tui/events"
-	"github.com/budaev/agent/tui/theme"
+	"github.com/budaev/stell/internal/bootstrap"
+	"github.com/budaev/stell/pkg/observability"
+	"github.com/budaev/stell/tui/app"
+	"github.com/budaev/stell/tui/commands"
+	"github.com/budaev/stell/tui/events"
+	"github.com/budaev/stell/tui/theme"
 )
 
 func main() {
-	cfgPath := flag.String("config", "configs/agent.yaml", "agent config")
+	cfgPath := flag.String("config", "configs/stell.yaml", "agent config")
 	themePath := flag.String("theme", "tui/theme/config.yaml", "TUI theme YAML")
 	model := flag.String("model", "", "override LLM model")
 	provider := flag.String("provider", "", "override LLM provider")

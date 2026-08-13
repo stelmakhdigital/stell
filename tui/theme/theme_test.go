@@ -3,7 +3,7 @@ package theme_test
 import (
 	"testing"
 
-	"github.com/budaev/agent/tui/theme"
+	"github.com/budaev/stell/tui/theme"
 )
 
 func TestParseTheme(t *testing.T) {

@@ -10,17 +10,17 @@ import (
 	"strings"
 	"time"
 
-	"github.com/budaev/agent/internal/agent"
-	"github.com/budaev/agent/internal/eventbus"
-	"github.com/budaev/agent/internal/guardrails"
-	"github.com/budaev/agent/internal/llm"
-	"github.com/budaev/agent/internal/runtimeclient"
-	"github.com/budaev/agent/internal/tools"
-	"github.com/budaev/agent/internal/tools/builtin"
-	"github.com/budaev/agent/pkg/config"
-	"github.com/budaev/agent/pkg/eval"
-	"github.com/budaev/agent/runtime/executor"
-	"github.com/budaev/agent/runtime/sandbox"
+	"github.com/budaev/stell/internal/agent"
+	"github.com/budaev/stell/internal/eventbus"
+	"github.com/budaev/stell/internal/guardrails"
+	"github.com/budaev/stell/internal/llm"
+	"github.com/budaev/stell/internal/runtimeclient"
+	"github.com/budaev/stell/internal/tools"
+	"github.com/budaev/stell/internal/tools/builtin"
+	"github.com/budaev/stell/pkg/config"
+	"github.com/budaev/stell/pkg/eval"
+	"github.com/budaev/stell/runtime/executor"
+	"github.com/budaev/stell/runtime/sandbox"
 	"gopkg.in/yaml.v3"
 )
 
@@ -42,7 +42,7 @@ func runEval(args []string) error {
 	fs := flag.NewFlagSet("eval", flag.ContinueOnError)
 	golden := fs.String("golden-set", "./eval/golden", "golden set directory")
 	output := fs.String("output", "./eval/results", "output directory")
-	cfgPath := fs.String("config", "configs/agent.yaml", "agent config")
+	cfgPath := fs.String("config", "configs/stell.yaml", "agent config")
 	thPath := fs.String("thresholds", "configs/thresholds.yaml", "thresholds config")
 	model := fs.String("model", "", "model override")
 	providerName := fs.String("provider", "", "provider override")
@@ -183,7 +183,7 @@ func loadThresholds(path string) (eval.Thresholds, error) {
 func newProvider(cfg config.Config) (llm.Provider, error) {
 	apiKey := cfg.LLM.APIKey
 	if apiKey == "" {
-		apiKey = os.Getenv("AGENT_LLM_API_KEY")
+		apiKey = os.Getenv("STELL_LLM_API_KEY")
 	}
 	switch strings.ToLower(cfg.LLM.Provider) {
 	case "ollama", "":

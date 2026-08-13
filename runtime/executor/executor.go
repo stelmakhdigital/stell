@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/budaev/agent/runtime/sandbox"
+	"github.com/budaev/stell/runtime/sandbox"
 )
 
 const defaultMaxOutput = 64 * 1024

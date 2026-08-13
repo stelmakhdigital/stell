@@ -19,7 +19,7 @@ Flags: `-config`, `-theme`, `-model`, `-provider`, `-runtime`, `-runtime-url`, `
 - Go 1.22+ (module is 1.26)
 - Terminal with alt-screen (xterm, kitty, iTerm, WezTerm, ghostty, …)
 - Optional: Kitty/iTerm for key-release + inline images
-- Optional LLM for a live agent (`configs/agent.yaml`)
+- Optional LLM for a live agent (`configs/stell.yaml`)
 
 ## Keybindings
 
@@ -39,11 +39,11 @@ Slash commands: `/plan`, `/code`, `/help`, `/clear`, `/compact` (`configs/tui_co
 
 | Env | Default | Effect |
 |---|---|---|
-| `AGENT_TUI_ASYNC` | on | `0` — sync markdown |
-| `AGENT_TUI_FULL_REDRAW` | off | force full frames in the cell renderer |
-| `AGENT_TUI_KITTY` | on | `0` — do not request key-release |
-| `AGENT_TUI_IMAGES` | on | `0` — placeholders only |
-| `AGENT_TUI_PPROF` | off | `1` — `127.0.0.1:6060` |
+| `STELL_TUI_ASYNC` | on | `0` — sync markdown |
+| `STELL_TUI_FULL_REDRAW` | off | force full frames in the cell renderer |
+| `STELL_TUI_KITTY` | on | `0` — do not request key-release |
+| `STELL_TUI_IMAGES` | on | `0` — placeholders only |
+| `STELL_TUI_PPROF` | off | `1` — `127.0.0.1:6060` |
 
 ## Docs
 

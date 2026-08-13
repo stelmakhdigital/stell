@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/budaev/agent/internal/llm"
+	"github.com/budaev/stell/internal/llm"
 )
 
 func TestCacheHitRateGrowsOnRepeatPrefix(t *testing.T) {

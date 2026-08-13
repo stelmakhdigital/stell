@@ -3,7 +3,7 @@ package guardrails
 import (
 	"regexp"
 
-	"github.com/budaev/agent/pkg/observability"
+	"github.com/budaev/stell/pkg/observability"
 )
 
 var (

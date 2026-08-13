@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/budaev/agent/internal/llm"
+	"github.com/budaev/stell/internal/llm"
 )
 
 func TestGenerateDeadline(t *testing.T) {

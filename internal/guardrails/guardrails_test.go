@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/internal/guardrails"
+	"github.com/budaev/stell/internal/guardrails"
 )
 
 func TestInputInjectionBlocked(t *testing.T) {

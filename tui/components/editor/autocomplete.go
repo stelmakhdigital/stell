@@ -7,8 +7,8 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 	"charm.land/lipgloss/v2"
-	"github.com/budaev/agent/tui/complete"
-	"github.com/budaev/agent/tui/theme"
+	"github.com/budaev/stell/tui/complete"
+	"github.com/budaev/stell/tui/theme"
 	"github.com/mattn/go-runewidth"
 )
 

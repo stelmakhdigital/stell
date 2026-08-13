@@ -3,8 +3,8 @@ package tools_test
 import (
 	"testing"
 
-	"github.com/budaev/agent/internal/tools"
-	"github.com/budaev/agent/internal/tools/builtin"
+	"github.com/budaev/stell/internal/tools"
+	"github.com/budaev/stell/internal/tools/builtin"
 )
 
 func TestAllowlistHidesTools(t *testing.T) {

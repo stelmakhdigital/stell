@@ -2,15 +2,15 @@ package app
 
 import (
 	tea "charm.land/bubbletea/v2"
-	"github.com/budaev/agent/tui/complete"
-	"github.com/budaev/agent/tui/components"
-	"github.com/budaev/agent/tui/components/chat"
-	"github.com/budaev/agent/tui/components/editor"
-	"github.com/budaev/agent/tui/components/footer"
-	"github.com/budaev/agent/tui/components/header"
-	"github.com/budaev/agent/tui/components/spinner"
-	"github.com/budaev/agent/tui/events"
-	"github.com/budaev/agent/tui/renderer"
+	"github.com/budaev/stell/tui/complete"
+	"github.com/budaev/stell/tui/components"
+	"github.com/budaev/stell/tui/components/chat"
+	"github.com/budaev/stell/tui/components/editor"
+	"github.com/budaev/stell/tui/components/footer"
+	"github.com/budaev/stell/tui/components/header"
+	"github.com/budaev/stell/tui/components/spinner"
+	"github.com/budaev/stell/tui/events"
+	"github.com/budaev/stell/tui/renderer"
 )
 
 // New creates the root TUI model.

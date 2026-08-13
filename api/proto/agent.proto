@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package agent.v1;
 
-option go_package = "github.com/budaev/agent/api/proto;agentv1";
+option go_package = "github.com/budaev/stell/api/proto;agentv1";
 
 message Event {
   string type = 1;

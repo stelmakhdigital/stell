@@ -4,13 +4,13 @@ import (
 	"strings"
 
 	tea "charm.land/bubbletea/v2"
-	"github.com/budaev/agent/internal/eventbus"
-	"github.com/budaev/agent/tui/components/chat"
-	"github.com/budaev/agent/tui/components/editor"
-	"github.com/budaev/agent/tui/components/header"
-	"github.com/budaev/agent/tui/components/spinner"
-	"github.com/budaev/agent/tui/events"
-	"github.com/budaev/agent/tui/input"
+	"github.com/budaev/stell/internal/eventbus"
+	"github.com/budaev/stell/tui/components/chat"
+	"github.com/budaev/stell/tui/components/editor"
+	"github.com/budaev/stell/tui/components/header"
+	"github.com/budaev/stell/tui/components/spinner"
+	"github.com/budaev/stell/tui/events"
+	"github.com/budaev/stell/tui/input"
 )
 
 // Update implements tea.Model.

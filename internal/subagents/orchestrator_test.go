@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/budaev/agent/internal/agent"
-	"github.com/budaev/agent/internal/llm"
-	"github.com/budaev/agent/internal/subagents"
+	"github.com/budaev/stell/internal/agent"
+	"github.com/budaev/stell/internal/llm"
+	"github.com/budaev/stell/internal/subagents"
 )
 
 type gateProvider struct {

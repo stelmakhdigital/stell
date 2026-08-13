@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/budaev/agent/internal/tools"
+	"github.com/budaev/stell/internal/tools"
 )
 
 type stubTool struct {

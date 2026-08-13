@@ -6,7 +6,7 @@ import (
 	"os"
 
 	tea "charm.land/bubbletea/v2"
-	"github.com/budaev/agent/tui/theme"
+	"github.com/budaev/stell/tui/theme"
 )
 
 // Run starts the Bubble Tea program.
@@ -21,11 +21,11 @@ func Run(cfg Config) error {
 }
 
 func startPprof() {
-	v := os.Getenv("AGENT_TUI_PPROF")
+	v := os.Getenv("STELL_TUI_PPROF")
 	if v != "1" && v != "true" {
 		return
 	}
-	addr := os.Getenv("AGENT_TUI_PPROF_ADDR")
+	addr := os.Getenv("STELL_TUI_PPROF_ADDR")
 	if addr == "" {
 		addr = "127.0.0.1:6060"
 	}

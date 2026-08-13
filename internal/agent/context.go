@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/budaev/agent/internal/llm"
-	"github.com/budaev/agent/internal/skills"
-	"github.com/budaev/agent/internal/tools"
+	"github.com/budaev/stell/internal/llm"
+	"github.com/budaev/stell/internal/skills"
+	"github.com/budaev/stell/internal/tools"
 )
 
 const defaultSystemPrompt = `You are a coding AI agent. Your job is to help the user solve software development tasks.

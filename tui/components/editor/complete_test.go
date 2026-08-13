@@ -7,9 +7,9 @@ import (
 	"testing"
 
 	tea "charm.land/bubbletea/v2"
-	"github.com/budaev/agent/tui/complete"
-	"github.com/budaev/agent/tui/components/editor"
-	"github.com/budaev/agent/tui/theme"
+	"github.com/budaev/stell/tui/complete"
+	"github.com/budaev/stell/tui/components/editor"
+	"github.com/budaev/stell/tui/theme"
 )
 
 func TestSlashOpensCommands(t *testing.T) {

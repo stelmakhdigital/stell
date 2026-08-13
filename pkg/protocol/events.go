@@ -3,7 +3,7 @@ package protocol
 import (
 	"time"
 
-	"github.com/budaev/agent/internal/eventbus"
+	"github.com/budaev/stell/internal/eventbus"
 )
 
 // Event is the shared wire format for TUI / Web / IDE / public API.

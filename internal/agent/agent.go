@@ -1,13 +1,13 @@
 package agent
 
 import (
-	"github.com/budaev/agent/internal/domain"
-	"github.com/budaev/agent/internal/eventbus"
-	"github.com/budaev/agent/internal/guardrails"
-	"github.com/budaev/agent/internal/hooks"
-	"github.com/budaev/agent/internal/llm"
-	"github.com/budaev/agent/internal/skills"
-	"github.com/budaev/agent/internal/tools"
+	"github.com/budaev/stell/internal/domain"
+	"github.com/budaev/stell/internal/eventbus"
+	"github.com/budaev/stell/internal/guardrails"
+	"github.com/budaev/stell/internal/hooks"
+	"github.com/budaev/stell/internal/llm"
+	"github.com/budaev/stell/internal/skills"
+	"github.com/budaev/stell/internal/tools"
 )
 
 const defaultMaxDepth = 50
@@ -142,7 +142,7 @@ func (a *Agent) Compactor() *hooks.Compactor { return a.compactor }
 func New(opts ...Option) *Agent {
 	a := &Agent{
 		id:             domain.AgentID("agent-1"),
-		name:           "coding-agent",
+		name:           "stell",
 		bus:            eventbus.New(),
 		registry:       tools.NewRegistry(),
 		sessions:       domain.NewMemorySessionRepository(),

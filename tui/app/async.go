@@ -4,8 +4,8 @@ import (
 	"sync"
 
 	tea "charm.land/bubbletea/v2"
-	"github.com/budaev/agent/tui/render"
-	"github.com/budaev/agent/tui/theme"
+	"github.com/budaev/stell/tui/render"
+	"github.com/budaev/stell/tui/theme"
 )
 
 const (

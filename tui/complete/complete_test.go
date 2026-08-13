@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/tui/complete"
+	"github.com/budaev/stell/tui/complete"
 )
 
 func TestCommandProvider(t *testing.T) {

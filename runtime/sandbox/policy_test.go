@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/runtime/sandbox"
+	"github.com/budaev/stell/runtime/sandbox"
 )
 
 func TestProductionPolicyHardened(t *testing.T) {

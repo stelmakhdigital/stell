@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/budaev/agent/internal/runtimeclient"
-	"github.com/budaev/agent/pkg/hmacauth"
+	"github.com/budaev/stell/internal/runtimeclient"
+	"github.com/budaev/stell/pkg/hmacauth"
 )
 
 func TestFailoverSkipsUnhealthy(t *testing.T) {

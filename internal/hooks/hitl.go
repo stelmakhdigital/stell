@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/budaev/agent/internal/eventbus"
-	"github.com/budaev/agent/internal/tools"
+	"github.com/budaev/stell/internal/eventbus"
+	"github.com/budaev/stell/internal/tools"
 )
 
 const (

@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/budaev/agent/internal/skills"
+	"github.com/budaev/stell/internal/skills"
 )
 
 func TestLoadSkillLazyBody(t *testing.T) {

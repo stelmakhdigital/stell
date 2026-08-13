@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/budaev/agent/tui/app"
-	"github.com/budaev/agent/tui/theme"
+	"github.com/budaev/stell/tui/app"
+	"github.com/budaev/stell/tui/theme"
 )
 
 func TestAsyncQueuesBeyondInflight(t *testing.T) {

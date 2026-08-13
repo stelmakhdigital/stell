@@ -4,7 +4,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/budaev/agent/internal/llm"
+	"github.com/budaev/stell/internal/llm"
 )
 
 // EstimateTokens approximates tokens as runes/4 (tiktoken-compatible fallback).

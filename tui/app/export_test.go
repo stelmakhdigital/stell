@@ -1,6 +1,6 @@
 package app
 
-import "github.com/budaev/agent/tui/components/chat"
+import "github.com/budaev/stell/tui/components/chat"
 
 // EditorSet is a test helper.
 func (m *Model) EditorSet(s string) {

@@ -7,12 +7,12 @@ import (
 	"net/http"
 	"os"
 
-	pubapi "github.com/budaev/agent/internal/api"
-	"github.com/budaev/agent/internal/bootstrap"
+	pubapi "github.com/budaev/stell/internal/api"
+	"github.com/budaev/stell/internal/bootstrap"
 )
 
 func main() {
-	cfgPath := flag.String("config", "configs/agent.yaml", "agent config")
+	cfgPath := flag.String("config", "configs/stell.yaml", "agent config")
 	addr := flag.String("addr", "", "listen address override")
 	runtimeMode := flag.String("runtime", "local", "hands mode: local|http")
 	runtimeURL := flag.String("runtime-url", "", "hands URL for http mode")
@@ -30,10 +30,10 @@ func main() {
 	}
 	token := rt.Config.Agent.APIToken
 	if token == "" {
-		token = os.Getenv("AGENT_API_TOKEN")
+		token = os.Getenv("STELL_API_TOKEN")
 	}
 	if token == "" {
-		log.Fatal("set agent.api_token or AGENT_API_TOKEN")
+		log.Fatal("set agent.api_token or STELL_API_TOKEN")
 	}
 	listen := rt.Config.Agent.APIAddr
 	if *addr != "" {

@@ -8,10 +8,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/budaev/agent/pkg/hmacauth"
-	"github.com/budaev/agent/runtime/api"
-	"github.com/budaev/agent/runtime/executor"
-	"github.com/budaev/agent/runtime/sandbox"
+	"github.com/budaev/stell/pkg/hmacauth"
+	"github.com/budaev/stell/runtime/api"
+	"github.com/budaev/stell/runtime/executor"
+	"github.com/budaev/stell/runtime/sandbox"
 )
 
 func TestExecuteRequiresHMAC(t *testing.T) {

@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/budaev/agent/internal/domain"
+	"github.com/budaev/stell/internal/domain"
 )
 
 func TestMemorySessionRepository(t *testing.T) {

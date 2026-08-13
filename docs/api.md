@@ -7,9 +7,9 @@ Token auth (`Authorization: Bearer` or `X-API-Token`). **Not** Hands HMAC.
 - Events: `pkg/protocol`
 
 ```bash
-export AGENT_API_TOKEN=dev-token
+export STELL_API_TOKEN=dev-token
 go run ./cmd/gateway -addr 127.0.0.1:8080
-curl -H "Authorization: Bearer $AGENT_API_TOKEN" \
+curl -H "Authorization: Bearer $STELL_API_TOKEN" \
   -d '{"message":"hello"}' http://127.0.0.1:8080/v1/sessions
 ```
 

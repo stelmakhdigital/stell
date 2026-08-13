@@ -4,8 +4,8 @@ import (
 	"strings"
 
 	tea "charm.land/bubbletea/v2"
-	"github.com/budaev/agent/tui/components"
-	"github.com/budaev/agent/tui/input"
+	"github.com/budaev/stell/tui/components"
+	"github.com/budaev/stell/tui/input"
 )
 
 // View implements tea.Model.
@@ -38,7 +38,7 @@ func (m Model) View() tea.View {
 	}
 	parts = append(parts, components.JoinLines(m.footer.Render(m.width)))
 	content := strings.Join(parts, "\n")
-	// Bubble Tea paints the frame; Observe records cell-diff stats / AGENT_TUI_FULL_REDRAW.
+	// Bubble Tea paints the frame; Observe records cell-diff stats / STELL_TUI_FULL_REDRAW.
 	if m.diff != nil {
 		_, _ = m.diff.Observe(m.width, m.height, content)
 	}

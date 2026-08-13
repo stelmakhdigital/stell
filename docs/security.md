@@ -10,7 +10,7 @@
 
 Skew window: 30s. Replay of a nonce is rejected. `/healthz` is unsigned.
 
-Key: `hmac_key` in config or `AGENT_HMAC_KEY`. Production runtime will not start without a key.
+Key: `hmac_key` in config or `STELL_HMAC_KEY`. Production runtime will not start without a key.
 
 Keep clocks in sync (NTP), or valid requests will fall outside the window.
 
