@@ -1,12 +1,14 @@
-# Coding Agent (Go)
+# Stell
 
 Minimal MVP core: agent loop, Event Bus, tool stubs, LLM providers (Ollama/vLLM/OpenAI-compatible).
+
+![Stell][docs/assets/image.png]
 
 ## Quickstart
 
 ```bash
 go test ./...
-go run ./cmd/agent run -config configs/agent.yaml "Explain what you can do"
+go run ./cmd/stell run -config configs/stell.yaml "Explain what you can do"
 ```
 
 Requires an LLM endpoint (Ollama at `http://127.0.0.1:11434/v1` by default).
@@ -27,7 +29,7 @@ go run ./cmd/eval --judge --limit 5   # optional LLM-as-Judge
 
 ## TUI
 
-Docs: [`tui/README.md`](tui/README.md). Themes: [`docs/tui/themes.md`](docs/tui/themes.md). Components: [`docs/tui/components.md`](docs/tui/components.md).
+Docs: `[tui/README.md](tui/README.md)`. Themes: `[docs/tui/themes.md](docs/tui/themes.md)`. Components: `[docs/tui/components.md](docs/tui/components.md)`.
 
 ```bash
 go run ./tui                          # needs LLM (Ollama by default)
