@@ -197,6 +197,7 @@ func (a *Agent) Run(ctx context.Context, task string) RunResult {
 				"tool":    name,
 				"error":   errText != "",
 				"blocked": blocked,
+				"preview": toolResultPreview(content, errText),
 			})
 
 			messages = append(messages, llm.Message{

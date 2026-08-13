@@ -190,6 +190,9 @@ func (m *Model) format(msg Message) string {
 	if img := render.InlineImages(msg.Text, m.width, m.workspace); img != "" {
 		body += "\n" + img
 	}
+	if msg.Role == RoleTool {
+		return head + "  " + body
+	}
 	return head + "\n" + body
 }
 

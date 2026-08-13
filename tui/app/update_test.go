@@ -10,6 +10,7 @@ import (
 	"github.com/budaev/stell/tui/components"
 	"github.com/budaev/stell/tui/components/chat"
 	"github.com/budaev/stell/tui/events"
+	"github.com/budaev/stell/tui/renderer"
 	"github.com/budaev/stell/tui/theme"
 )
 
@@ -80,6 +81,29 @@ func TestRegistryRendersBelowChat(t *testing.T) {
 	v := model.View()
 	if !strings.Contains(v.Content, "EXTRA-SLOT") {
 		t.Fatalf("registry missing: %q", v.Content)
+	}
+}
+
+func TestViewHasHorizontalPadding(t *testing.T) {
+	m := app.New(app.Config{Theme: theme.Default()})
+	updated, _ := m.Update(tea.WindowSizeMsg{Width: 80, Height: 24})
+	model := updated.(app.Model)
+	plain := renderer.StripANSI(model.View().Content)
+	checked := 0
+	for _, line := range strings.Split(plain, "\n") {
+		if strings.TrimSpace(line) == "" {
+			continue
+		}
+		if !strings.HasPrefix(line, "  ") {
+			t.Fatalf("missing left pad: %q", line)
+		}
+		if len([]rune(line)) > 78 {
+			t.Fatalf("line hugs right edge (%d): %q", len([]rune(line)), line)
+		}
+		checked++
+	}
+	if checked == 0 {
+		t.Fatal("no content lines")
 	}
 }
 

@@ -8,6 +8,9 @@ import (
 	"github.com/budaev/stell/tui/input"
 )
 
+// framePad is the left/right gutter so text does not hug the terminal edge.
+const framePad = 2
+
 // View implements tea.Model.
 func (m Model) View() tea.View {
 	var v tea.View
@@ -21,23 +24,24 @@ func (m Model) View() tea.View {
 		m.height = 24
 	}
 	m.layout()
+	inner := m.innerWidth()
 
 	parts := []string{
-		components.JoinLines(m.header.Render(m.width)),
-		components.JoinLines(m.chat.Render(m.width)),
+		components.JoinLines(m.header.Render(inner)),
+		components.JoinLines(m.chat.Render(inner)),
 	}
-	if extra := m.extras.RenderSlot(components.SlotBelowChat, m.width); len(extra) > 0 {
+	if extra := m.extras.RenderSlot(components.SlotBelowChat, inner); len(extra) > 0 {
 		parts = append(parts, components.JoinLines(extra))
 	}
-	if spin := m.spinner.Render(m.width); len(spin) > 0 {
+	if spin := m.spinner.Render(inner); len(spin) > 0 {
 		parts = append(parts, components.JoinLines(spin))
 	}
-	parts = append(parts, components.JoinLines(m.editor.Render(m.width)))
-	if extra := m.extras.RenderSlot(components.SlotAboveFooter, m.width); len(extra) > 0 {
+	parts = append(parts, components.JoinLines(m.editor.Render(inner)))
+	if extra := m.extras.RenderSlot(components.SlotAboveFooter, inner); len(extra) > 0 {
 		parts = append(parts, components.JoinLines(extra))
 	}
-	parts = append(parts, components.JoinLines(m.footer.Render(m.width)))
-	content := strings.Join(parts, "\n")
+	parts = append(parts, components.JoinLines(m.footer.Render(inner)))
+	content := m.padFrame(strings.Join(parts, "\n"))
 	// Bubble Tea paints the frame; Observe records cell-diff stats / STELL_TUI_FULL_REDRAW.
 	if m.diff != nil {
 		_, _ = m.diff.Observe(m.width, m.height, content)
@@ -47,7 +51,31 @@ func (m Model) View() tea.View {
 	return v
 }
 
+func (m Model) innerWidth() int {
+	w := m.width - 2*framePad
+	if w < 10 {
+		if m.width < 1 {
+			return 1
+		}
+		return m.width
+	}
+	return w
+}
+
+func (m Model) padFrame(content string) string {
+	pad := (m.width - m.innerWidth()) / 2
+	if pad <= 0 {
+		return content
+	}
+	gutter := strings.Repeat(" ", pad)
+	lines := strings.Split(content, "\n")
+	for i, line := range lines {
+		lines[i] = gutter + line
+	}
+	return strings.Join(lines, "\n")
+}
+
 // ContentString is the rendered UI without tea.View (tests).
 func (m Model) ContentString() string {
-	return strings.Join(m.header.Render(m.width), "\n")
+	return strings.Join(m.header.Render(m.innerWidth()), "\n")
 }

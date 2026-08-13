@@ -106,6 +106,50 @@ func TestRunToolThenFinal(t *testing.T) {
 	}
 }
 
+func TestToolResultEventHasPreview(t *testing.T) {
+	provider := llm.NewFake(
+		llm.Response{
+			Message: llm.Message{
+				Role: llm.RoleAssistant,
+				ToolCalls: []llm.ToolCall{{
+					ID:   "call-1",
+					Type: "function",
+					Function: llm.FunctionCall{
+						Name:      "read_file",
+						Arguments: `{"path":"README.md"}`,
+					},
+				}},
+			},
+			FinishReason: "tool_calls",
+		},
+		llm.Response{
+			Message:      llm.Message{Role: llm.RoleAssistant, Content: "done"},
+			FinishReason: "stop",
+		},
+	)
+	var preview, tool string
+	bus := eventbus.New()
+	bus.Subscribe(eventbus.EventToolResult, func(e *eventbus.Event) (*eventbus.EventResult, error) {
+		tool, _ = e.Data["tool"].(string)
+		preview, _ = e.Data["preview"].(string)
+		return nil, nil
+	})
+	reg := tools.NewRegistry()
+	builtin.RegisterStubs(reg)
+	a := agent.New(
+		agent.WithProvider(provider),
+		agent.WithRegistry(reg),
+		agent.WithEventBus(bus),
+	)
+	res := a.Run(context.Background(), "read README")
+	if res.Err != nil {
+		t.Fatal(res.Err)
+	}
+	if tool != "read_file" || preview == "" {
+		t.Fatalf("tool=%q preview=%q", tool, preview)
+	}
+}
+
 func TestMaxDepth(t *testing.T) {
 	// Always request a tool call → hit max depth.
 	mk := func() llm.Response {

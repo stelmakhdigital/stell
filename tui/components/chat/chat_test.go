@@ -27,6 +27,19 @@ func TestAssistantRendersMarkdown(t *testing.T) {
 	}
 }
 
+func TestToolLineIsSingleLine(t *testing.T) {
+	c := chat.New(theme.Default())
+	c.SetSize(80, 12)
+	c.Append(chat.RoleTool, "→ glob  **/*.go")
+	plain := renderer.StripANSI(strings.Join(c.Render(80), "\n"))
+	if !strings.Contains(plain, "tool  → glob  **/*.go") {
+		t.Fatalf("expected single-line tool step: %q", plain)
+	}
+	if strings.Count(plain, "\n") > 1 && strings.Contains(plain, "tool\n") {
+		t.Fatalf("tool label should not sit on its own line: %q", plain)
+	}
+}
+
 func TestHeavyAssistantIsAsync(t *testing.T) {
 	c := chat.New(theme.Default())
 	c.SetSize(80, 12)

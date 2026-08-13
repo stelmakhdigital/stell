@@ -244,8 +244,8 @@ func (m *Model) layout() []chat.HeavyJob {
 			chatH = 3
 		}
 	}
-	jobs := m.chat.SetSize(m.width, chatH)
-	m.editor.SetWidth(m.width)
+	jobs := m.chat.SetSize(m.innerWidth(), chatH)
+	m.editor.SetWidth(m.innerWidth())
 	return jobs
 }
 
