@@ -3,7 +3,8 @@ bin/
 .DS_Store
 agent-tui.log
 stell-tui.log
-eval/results/*/
+audit*
+eval/results/*
 eval/results/results.json
 !.gitkeep
 .cursor
